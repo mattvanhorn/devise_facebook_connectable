@@ -142,7 +142,7 @@ module Devise #:nodoc:
             new_session.secure_with!(self.send(:"#{self.class.facebook_session_key_field}"),
                 self.send(:"#{self.class.facebook_uid_field}"), timeout_in
               )
-            ::Facebooker::Session.current = new_session
+            session[:facebook_session] = new_session
           end
         end
 

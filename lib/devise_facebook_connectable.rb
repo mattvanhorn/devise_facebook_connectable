@@ -17,6 +17,12 @@ module Devise
   @@facebook_uid_field = :facebook_uid
 
   # Specifies the name of the database column name used for storing
+  # the Facebook OAuth token. Useful if this info should be saved in a
+  # generic column if different authentication solutions are used.
+  mattr_accessor :facebook_oauth2_field
+  @@facebook_uid_field = :facebook_oauth2_token
+
+  # Specifies the name of the database column name used for storing
   # the user Facebook session key. Useful if this info should be saved in a
   # generic column if different authentication solutions are used.
   mattr_accessor :facebook_session_key_field
@@ -26,6 +32,9 @@ module Devise
   # a specified Facebook UID or not.
   mattr_accessor :facebook_auto_create_account
   @@facebook_auto_create_account = true
+  
+  
+  
 end
 
 # Load core I18n locales: en

@@ -31,6 +31,7 @@ module Devise #:nodoc:
             def expired_session_hack
               clear_facebook_session_information
               Facebooker::Session.current = nil
+              session[:facebook_session] = nil
             rescue
               if RUBY_VERSION >= '1.9' && RAILS_GEM_VERSION == '2.3.4'
                 # Rails 2.3.4 on Ruby 1.9 issue. Should not happen in Rails 2.3.5+
